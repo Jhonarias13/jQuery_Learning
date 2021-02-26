@@ -6,22 +6,78 @@
 $(function() {
     'use strict';
 
-    $('.navegacion ul li a').on('click', function(e) {
-        e.preventDefault();
-        $(this).text('click');
+
+    //recorrer arreglos con jQuery
+
+    var proximosViajes = ['londres', 'Bogota', 'Medellin', 'Cucuta', 'Armenia'];
+
+    $.each(proximosViajes, function(i, v) {
+        // console.log(v);
+        if (i == 0) {
+            $('aside').append('<h2>Proximos viajes</h2>');
+        }
+        $('aside').append('<li>' + v + '</li>');
+
     });
 
-    //animate, animaciones con jQuery
-    $('main article img').on({
-        mouseenter: function() {
-            $(this).animate({ 'width': '100%' });
-        },
-        mouseleave: function() {
-            $(this).animate({ 'width': '200px' });
+    var viajesporfechas = {
+        primero: 'londres',
+        segundo: 'mexico',
+        Tercero: 'Tokyo',
+        Cuarto: 'San Gil'
+    }
+    $.each(viajesporfechas, function(i, v) {
+        if (i == 0) {
+            $('aside').append('< h2 > Proximamente </h2>')
         }
-    }, );
+        $('aside').append('<li>' + v + '</li>')
+    })
+
+    // //AJAX con html
+    // $('.logo img').click(function() {
+    //     $('aside').load('promociones.html');
+    // });
 
 
+    // AJAX con archivos con texto
+    // $('.logo img').on('click', cargarAjax);
+
+    // function cargarAjax() {
+    //     $.ajax('promociones.txt', {
+    //         success: agregrarcontenido,
+    //         type: 'GET',
+    //         datatype: 'text'
+    //     });
+    // }
+
+    // function agregrarcontenido(data, status, jqxhr) {
+    //     $('aside').text(data);
+    //     console.log(status);
+    // }
+
+
+    // animaciones 
+    // $('#menu').click(function() {
+    //     $('.navegacion').slideUp(500);
+    // });
+    // $('.logo img').click(function() {
+    //     $('.navegacion').slideDown(500);
+    // });
+
+    // $('.navegacion ul li a').on('click', function(e) {
+    //     e.preventDefault();
+    //     $(this).text('click');
+    // });
+
+    // //animate, animaciones con jQuery
+    // $('main article img').on({
+    //     mouseenter: function() {
+    //         $(this).animate({ 'width': '100%' });
+    //     },
+    //     mouseleave: function() {
+    //         $(this).animate({ 'width': '200px' });
+    //     }
+    // }, );
 
     //refactorizacion para selectores mas complejos
     // $('main').on({
