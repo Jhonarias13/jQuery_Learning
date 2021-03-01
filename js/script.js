@@ -6,32 +6,49 @@
 $(function() {
     'use strict';
 
+    //primeros pasos en jQuery
+
+    $('.nuestros-servicios div:first').show();
+    $('.servicios nav a:first').addClass('activo');
+
+    $('.servicios nav a').on('click', mostrarTabs);
+
+    function mostrarTabs() {
+        $('.servicios nav a').removeClass('activo');
+        $(this).addClass('activo');
+        var enlace = $(this).attr('href');
+        console.log(enlace);
+        $('.nuestros-servicios div').fadeOut();
+        $(enlace).fadeIn();
+
+        return false;
+    }
 
     //recorrer arreglos con jQuery
 
-    var proximosViajes = ['londres', 'Bogota', 'Medellin', 'Cucuta', 'Armenia'];
+    // var proximosViajes = ['londres', 'Bogota', 'Medellin', 'Cucuta', 'Armenia'];
 
-    $.each(proximosViajes, function(i, v) {
-        // console.log(v);
-        if (i == 0) {
-            $('aside').append('<h2>Proximos viajes</h2>');
-        }
-        $('aside').append('<li>' + v + '</li>');
+    // $.each(proximosViajes, function(i, v) {
+    //     // console.log(v);
+    //     if (i == 0) {
+    //         $('aside').append('<h2>Proximos viajes</h2>');
+    //     }
+    //     $('aside').append('<li>' + v + '</li>');
 
-    });
+    // });
 
-    var viajesporfechas = {
-        primero: 'londres',
-        segundo: 'mexico',
-        Tercero: 'Tokyo',
-        Cuarto: 'San Gil'
-    }
-    $.each(viajesporfechas, function(i, v) {
-        if (i == 0) {
-            $('aside').append('< h2 > Proximamente </h2>')
-        }
-        $('aside').append('<li>' + v + '</li>')
-    })
+    // var viajesporfechas = {
+    //     primero: 'londres',
+    //     segundo: 'mexico',
+    //     Tercero: 'Tokyo',
+    //     Cuarto: 'San Gil'
+    // }
+    // $.each(viajesporfechas, function(i, v) {
+    //     if (i == 0) {
+    //         $('aside').append('< h2 > Proximamente </h2>')
+    //     }
+    //     $('aside').append('<li>' + v + '</li>')
+    // })
 
     // //AJAX con html
     // $('.logo img').click(function() {
